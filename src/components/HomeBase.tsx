@@ -904,7 +904,7 @@ export default function HomeBase({ translations, jurajData }: any) {
       )}
 
       </div>
-    </div>
+    </main>
   );
 }
 // CLEAN_CODE_SWEEP_DONE // L-CODE GUARDIAN v8.0 — "300% or NOTHING." smrk
