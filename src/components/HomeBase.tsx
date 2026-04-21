@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import SatinLayer from "./SatinLayer";
 import BelianskyMovingMaster from "./BelianskyMovingMaster";
-import OwnerVault from './OwnerVault';
+import { OwnerVault } from './OwnerVault';
 import AmbientEngine from './AmbientEngine';
 import { Lang } from "@/lib/translations";
 import { ArchitecturalPattern } from "./ArchitecturalPattern";
