@@ -10,10 +10,10 @@ import { ArchitecturalPattern } from "./ArchitecturalPattern";
 
 import { useSecurity } from "@/kernel/SecurityKernel";
 
-// ═══════════════════════════════════════════════════
+// 
 // PRISMATIC SILK INTERFACE v2.0
-// L-CODE GUARDIAN — "300% or NOTHING."
-// ═══════════════════════════════════════════════════
+// L-CODE GUARDIAN  "300% or NOTHING."
+// 
 
 export default function HomeClient({ translations, jurajData }: any) {
   const { isAuthorized, systemStatus } = useSecurity();
@@ -51,12 +51,12 @@ export default function HomeClient({ translations, jurajData }: any) {
     setLoading(false);
   };
 
-  // ═══════════════════════════════════════════════════
+  // 
   // WIX HEADLESS INJECTION ENGINE
-  // ═══════════════════════════════════════════════════
+  // 
   const t = jurajData ? { ...translations, ...jurajData } : translations;
   
-  // IFRAME HEIGHT SYNC — Pro dokonalou integraci do Wix "Embed"
+  // IFRAME HEIGHT SYNC  Pro dokonalou integraci do Wix "Embed"
   useEffect(() => {
     if (typeof window !== 'undefined' && window.parent !== window) {
       const sendHeight = () => {
@@ -102,7 +102,7 @@ export default function HomeClient({ translations, jurajData }: any) {
 
     const smoothLogic = () => {
       targetScroll = window.scrollY;
-      lerpScroll += (targetScroll - lerpScroll) * 0.08; // Luxusní plynulost
+      lerpScroll += (targetScroll - lerpScroll) * 0.08; // Luxusn plynulost
       
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollRatio = scrollHeight > 0 ? lerpScroll / scrollHeight : 0;
@@ -116,7 +116,7 @@ export default function HomeClient({ translations, jurajData }: any) {
     };
     frameId = requestAnimationFrame(smoothLogic);
 
-    // MAGNETIC ENGINE — OPTIMALIZOVANÝ PRO PASIVNÍ VÝKON
+    // MAGNETIC ENGINE  OPTIMALIZOVAN PRO PASIVN VKON
     const magnetics = document.querySelectorAll('.magnetic');
     const handleMagnetic = (e: MouseEvent, el: HTMLElement) => {
       const rect = el.getBoundingClientRect();
@@ -159,12 +159,12 @@ export default function HomeClient({ translations, jurajData }: any) {
   const handleSubmit = async (e: React.FormEvent) => { 
     e.preventDefault(); 
     try {
-      // 300% RELIABILITY: Tady by probíhal skutečný fetch na /api/leads
-      // Simulujeme bleskové odeslání do L-CODE databáze
+      // 300% RELIABILITY: Tady by probhal skuten fetch na /api/leads
+      // Simulujeme bleskov odesln do L-CODE databze
       setFormSent(true); 
       setTimeout(() => setFormSent(false), 3000); 
     } catch (error) {
-      console.error("L-CODE FORM ERROR: Odeslání dat selhalo. *smrk*", error);
+      console.error("L-CODE FORM ERROR: Odesln dat selhalo. *smrk*", error);
     }
   };
 
@@ -182,8 +182,7 @@ export default function HomeClient({ translations, jurajData }: any) {
     {code:'SK',label:'SK'}, {code:'EN',label:'EN'}, {code:'GA',label:'IRL'}
   ];
 
-  return (
-    <main className="relative min-h-screen bg-white font-sans text-beliansky-navy overflow-x-hidden selection:bg-prismatic selection:text-white elite-frame">
+  return <main className="relative min-h-screen bg-white font-sans text-beliansky-navy overflow-x-hidden selection:bg-prismatic selection:text-white elite-frame">
       {loading && (
         <div className={`fixed inset-0 z-[20000] bg-white flex flex-col items-center justify-center transition-all duration-1000 ${loadProgress >= 100 ? 'opacity-0 scale-110 pointer-events-none' : 'opacity-100'}`}>
           <div className="relative w-64 md:w-96">
@@ -237,10 +236,10 @@ export default function HomeClient({ translations, jurajData }: any) {
       <div className="bg-light-beam" style={{ animationDelay: '14s', width: '30%', left: '60%' }} />
 
       <div className="fixed left-4 top-0 h-screen flex items-center justify-center -rotate-180 [writing-mode:vertical-lr] text-[12px] font-black tracking-[2.5em] text-beliansky-navy/70 z-[100] pointer-events-none uppercase whitespace-nowrap hidden sm:flex">
-        BELIANSKY — DIGITAL ARCHITECT — BELIANSKY — DIGITAL ARCHITECT — BELIANSKY — DIGITAL ARCHITECT
+        BELIANSKY  DIGITAL ARCHITECT  BELIANSKY  DIGITAL ARCHITECT  BELIANSKY  DIGITAL ARCHITECT
       </div>
       <div className="fixed right-4 top-0 h-screen flex items-center justify-center [writing-mode:vertical-lr] text-[12px] font-black tracking-[2.5em] text-beliansky-navy/70 z-[100] pointer-events-none uppercase whitespace-nowrap hidden sm:flex">
-        ARCHITECTURE BY L-CODE DYNAMICS — ARCHITECTURE BY L-CODE DYNAMICS — ARCHITECTURE BY L-CODE DYNAMICS
+        ARCHITECTURE BY L-CODE DYNAMICS  ARCHITECTURE BY L-CODE DYNAMICS  ARCHITECTURE BY L-CODE DYNAMICS
       </div>
 
       <div className="fixed bottom-12 left-12 z-[100] pointer-events-none hidden lg:flex flex-col gap-2">
@@ -491,7 +490,7 @@ export default function HomeClient({ translations, jurajData }: any) {
             <div className="w-full lg:w-8/12">
               <h1 className="hero-title relative flex flex-col pt-12">
                 <div className="absolute top-0 right-0 text-[10px] font-mono text-prismatic/40 tracking-widest hidden md:block">
-                  LOC: 48.1486° N, 17.1077° E
+                  LOC: 48.1486 N, 17.1077 E
                 </div>
                 <div className="absolute bottom-[-20%] left-[-10%] text-[10px] font-mono text-beliansky-navy/20 rotate-90 tracking-widest hidden md:block">
                   CORE_RECOVERY_KEY_v8.0
@@ -533,7 +532,7 @@ export default function HomeClient({ translations, jurajData }: any) {
       <section className="py-8 overflow-hidden border-y border-beliansky-navy/[0.04] bg-white/40 max-w-[100vw]">
         <div className="flex whitespace-nowrap" style={{animation:'marquee 30s linear infinite'}}>
           {[...Array(12)].map((_,i) => (
-            <span key={i} className="text-[14.5px] font-black tracking-[0.8em] text-[#9E3FFD] mx-10 shrink-0 uppercase">{t.hero.growth_metric[lang]} ●</span>
+            <span key={i} className="text-[14.5px] font-black tracking-[0.8em] text-[#9E3FFD] mx-10 shrink-0 uppercase">{t.hero.growth_metric[lang]} </span>
           ))}
         </div>
       </section>
@@ -627,7 +626,7 @@ export default function HomeClient({ translations, jurajData }: any) {
                   <div className="flex justify-between items-start mb-12 relative z-10">
                     <div className="text-4xl md:text-5xl font-black text-prismatic font-display tracking-tighter drop-shadow-sm">{s.price}</div>
                     <div className="w-14 h-14 md:w-16 md:h-16 rounded-[1.5rem] border border-beliansky-navy/05 flex items-center justify-center text-beliansky-navy/20 group-hover:bg-beliansky-navy group-hover:text-white transition-all scale-90 group-hover:scale-100 group-hover:rotate-[135deg]">
-                      <span className="-rotate-[135deg] font-black text-sm">→</span>
+                      <span className="-rotate-[135deg] font-black text-sm"></span>
                     </div>
                   </div>
                   <h3 className="text-2xl md:text-4xl font-black mb-10 leading-[1.0] uppercase font-display text-beliansky-navy relative z-10">{s[lang]}</h3>
@@ -674,18 +673,18 @@ export default function HomeClient({ translations, jurajData }: any) {
           <p className="text-[17px] font-bold text-beliansky-navy/60 max-w-4xl mb-24 leading-[2] uppercase tracking-wider">{t.differentiators.intro[lang]}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
             <div className="stagger p-12 rounded-[3.5rem] prism-card bg-red-50/10 border-red-200/20 md:mt-12">
-              <div className="text-[12px] font-black tracking-[0.8em] text-red-500/70 mb-10 uppercase">✕ {lang === 'SK' ? 'BEŽNÉ AGENTÚRY' : lang === 'EN' ? 'TYPICAL AGENCIES' : 'GNÁTHGHNÍOMHAIREACHTAÍ'}</div>
+              <div className="text-[12px] font-black tracking-[0.8em] text-red-500/70 mb-10 uppercase"> {lang === 'SK' ? 'BEN AGENTRY' : lang === 'EN' ? 'TYPICAL AGENCIES' : 'GNTHGHNOMHAIREACHTA'}</div>
               <ul className="space-y-6">
                 {t.differentiators.them.map((item: any, i: number) => (
-                  <li key={i} className="text-[16px] font-black text-red-900/50 flex gap-4 items-start leading-[1.6] uppercase tracking-wide"><span className="shrink-0 text-red-500">✕</span> {item[lang]}</li>
+                  <li key={i} className="text-[16px] font-black text-red-900/50 flex gap-4 items-start leading-[1.6] uppercase tracking-wide"><span className="shrink-0 text-red-500"></span> {item[lang]}</li>
                 ))}
               </ul>
             </div>
             <div className="stagger p-12 rounded-[3.5rem] prism-card bg-beliansky-purple/05 border-beliansky-purple/10 md:-mt-12">
-              <div className="text-[12px] font-black tracking-[0.8em] text-beliansky-purple/80 uppercase">✓ BELIANSKY A SPOL.</div>
+              <div className="text-[12px] font-black tracking-[0.8em] text-beliansky-purple/80 uppercase"> BELIANSKY A SPOL.</div>
               <ul className="space-y-6">
                 {t.differentiators.us.map((item: any, i: number) => (
-                  <li key={i} className="text-[16px] font-black text-beliansky-navy flex gap-4 items-start leading-[1.6] uppercase tracking-wide"><span className="shrink-0 text-beliansky-purple">✓</span> {item[lang]}</li>
+                  <li key={i} className="text-[16px] font-black text-beliansky-navy flex gap-4 items-start leading-[1.6] uppercase tracking-wide"><span className="shrink-0 text-beliansky-purple"></span> {item[lang]}</li>
                 ))}
               </ul>
             </div>
@@ -719,7 +718,7 @@ export default function HomeClient({ translations, jurajData }: any) {
                     </div>
                 </div>
                 <div className="absolute top-12 right-12 text-[9px] font-mono text-white/20 z-30 hidden md:block">
-                  [ 48° 08' N | 17° 06' E ]<br/>ALT: 003.2_STABLE
+                  [ 48 08' N | 17 06' E ]<br/>ALT: 003.2_STABLE
                 </div>
               </div>
               <div className="absolute -top-16 -right-16 w-48 h-48 border border-prismatic/10 rounded-full animate-spin-slow pointer-events-none" />
@@ -769,7 +768,7 @@ export default function HomeClient({ translations, jurajData }: any) {
                 <span className="w-2 h-2 rounded-full bg-prismatic animate-pulse" /> CLIENT_SUCCESS_LOGS
               </div>
               <h2 className="text-5xl md:text-8xl font-black text-beliansky-navy uppercase tracking-tighter drop-shadow-2xl leading-[0.9] title-depth">
-                POVEDALI <br/> <span className="text-prismatic">O NÁS</span>
+                POVEDALI <br/> <span className="text-prismatic">O NS</span>
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 flex-1">
@@ -831,7 +830,7 @@ export default function HomeClient({ translations, jurajData }: any) {
                 <div className="text-4xl font-black text-beliansky-navy mb-4 group-hover:text-prismatic transition-all font-display tracking-tighter">{shop.name}</div>
                 <div className="w-12 h-[1px] bg-beliansky-navy/10 mb-8 group-hover:w-full group-hover:bg-prismatic transition-all duration-700" />
                 <div className="text-[14px] font-black tracking-[0.3em] text-beliansky-navy/40 uppercase group-hover:text-beliansky-navy/70 transition-colors uppercase">
-                  {shop.desc?.[lang] || shop.desc || 'PRÉMIOVÁ REALIZÁCIA'}
+                  {shop.desc?.[lang] || shop.desc || 'PRMIOV REALIZCIA'}
                 </div>
               </div>
             ))}
@@ -871,7 +870,7 @@ export default function HomeClient({ translations, jurajData }: any) {
                 <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-beliansky-purple to-beliansky-purple/60 group-focus-within:w-full transition-all duration-700" />
               </div>
             ))}
-            <button type="submit" className={`mt-4 w-full py-6 font-black text-[14px] tracking-[0.4em] rounded-full transition-all duration-500 ${formSent ? 'bg-green-500 text-white' : 'bg-beliansky-navy text-white hover:scale-[1.02] active:scale-95 shadow-[0_20px_50px_rgba(22,22,63,0.15)]'}`}>{formSent ? '✓ ' + (lang === 'SK' ? 'ODOSLANÉ' : lang === 'EN' ? 'SENT' : 'SEOLTA') : t.contact.cta[lang]}</button>
+            <button type="submit" className={`mt-4 w-full py-6 font-black text-[14px] tracking-[0.4em] rounded-full transition-all duration-500 ${formSent ? 'bg-green-500 text-white' : 'bg-beliansky-navy text-white hover:scale-[1.02] active:scale-95 shadow-[0_20px_50px_rgba(22,22,63,0.15)]'}`}>{formSent ? ' ' + (lang === 'SK' ? 'ODOSLAN' : lang === 'EN' ? 'SENT' : 'SEOLTA') : t.contact.cta[lang]}</button>
           </form>
         </div>
       </section>
@@ -901,12 +900,11 @@ export default function HomeClient({ translations, jurajData }: any) {
 
       {showTopBtn && (
         <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="lg:hidden fixed bottom-6 left-6 z-[10000] w-14 h-14 bg-beliansky-navy text-white rounded-full flex items-center justify-center shadow-[0_20px_40px_rgba(22,22,63,0.3)] animate-fade-in transition-all active:scale-90" aria-label="Back to Top">
-          <span className="text-xl">↑</span>
+          <span className="text-xl"></span>
         </button>
       )}
 
       </div>
-    </main>
-  );
+    </main>;
 }
-// CLEAN_CODE_SWEEP_DONE // L-CODE GUARDIAN v8.0 — "300% or NOTHING." smrk
+// CLEAN_CODE_SWEEP_DONE // L-CODE GUARDIAN v8.0  "300% or NOTHING." smrk
