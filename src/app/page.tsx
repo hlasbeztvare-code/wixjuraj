@@ -1,4 +1,4 @@
-import HomeClient from '@/components/HomeClient';
+import HomeBase from '@/components/HomeBase';
 import { translations } from '@/lib/translations';
 import { WixBridge } from '@/lib/WixBridge';
 
@@ -36,7 +36,7 @@ export default async function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <HomeClient translations={translations} jurajData={jurajData} />
+      <HomeBase translations={translations} jurajData={jurajData} />
     </>
   );
 }
