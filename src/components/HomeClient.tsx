@@ -10,10 +10,27 @@ import { ArchitecturalPattern } from "./ArchitecturalPattern";
 
 import { useSecurity } from "@/kernel/SecurityKernel";
 
-// 
+// ═══════════════════════════════════════════════════
 // PRISMATIC SILK INTERFACE v2.0
-// L-CODE GUARDIAN  "300% or NOTHING."
-// 
+// L-CODE GUARDIAN — "300% or NOTHING."
+// ═══════════════════════════════════════════════════
+
+const navLinks = [
+  { key: 'services' as const, id: 'services' },
+  { key: 'process' as const, id: 'process' },
+  { key: 'stats' as const, id: 'stats' },
+  { key: 'differentiators' as const, id: 'differentiators' },
+  { key: 'testimonial' as const, id: 'testimonial' },
+  { key: 'references' as const, id: 'cases' },
+  { key: 'newsletter' as const, id: 'newsletter' },
+  { key: 'contact' as const, id: 'contact' },
+];
+
+const langs: { code: Lang; label: string }[] = [
+  { code: 'SK', label: 'SK' },
+  { code: 'EN', label: 'EN' },
+  { code: 'GA', label: 'IRL' }
+];
 
 export default function HomeClient({ translations, jurajData }: any) {
   const { isAuthorized, systemStatus } = useSecurity();
@@ -168,24 +185,8 @@ export default function HomeClient({ translations, jurajData }: any) {
     }
   };
 
-  const navLinks = [
-    { key: 'services' as const, id: 'services' },
-    { key: 'process' as const, id: 'process' },
-    { key: 'stats' as const, id: 'stats' },
-    { key: 'differentiators' as const, id: 'differentiators' },
-    { key: 'testimonial' as const, id: 'testimonial' },
-    { key: 'references' as const, id: 'cases' },
-    { key: 'newsletter' as const, id: 'newsletter' },
-    { key: 'contact' as const, id: 'contact' },
-  ];
-  const langs: { code: Lang; label: string }[] = [
-    { code: 'SK', label: 'SK' },
-    { code: 'EN', label: 'EN' },
-    { code: 'GA', label: 'IRL' }
-  ];
-
   return (
-    <main className="relative min-h-screen bg-white font-sans text-beliansky-navy overflow-x-hidden selection:bg-prismatic selection:text-white elite-frame">
+    <div className="relative min-h-screen bg-white font-sans text-beliansky-navy overflow-x-hidden selection:bg-prismatic selection:text-white elite-frame">
       {loading && (
         <div className={`fixed inset-0 z-[20000] bg-white flex flex-col items-center justify-center transition-all duration-1000 ${loadProgress >= 100 ? 'opacity-0 scale-110 pointer-events-none' : 'opacity-100'}`}>
           <div className="relative w-64 md:w-96">
@@ -908,7 +909,7 @@ export default function HomeClient({ translations, jurajData }: any) {
       )}
 
       </div>
-    </main>
+    </div>
   );
 }
 // CLEAN_CODE_SWEEP_DONE // L-CODE GUARDIAN v8.0  "300% or NOTHING." smrk
