@@ -178,11 +178,14 @@ export default function HomeClient({ translations, jurajData }: any) {
     { key: 'newsletter' as const, id: 'newsletter' },
     { key: 'contact' as const, id: 'contact' },
   ];
-  const langs: {code: Lang; label: string}[] = [
-    {code:'SK',label:'SK'}, {code:'EN',label:'EN'}, {code:'GA',label:'IRL'}
+  const langs: { code: Lang; label: string }[] = [
+    { code: 'SK', label: 'SK' },
+    { code: 'EN', label: 'EN' },
+    { code: 'GA', label: 'IRL' }
   ];
 
-  return <main className="relative min-h-screen bg-white font-sans text-beliansky-navy overflow-x-hidden selection:bg-prismatic selection:text-white elite-frame">
+  return (
+    <main className="relative min-h-screen bg-white font-sans text-beliansky-navy overflow-x-hidden selection:bg-prismatic selection:text-white elite-frame">
       {loading && (
         <div className={`fixed inset-0 z-[20000] bg-white flex flex-col items-center justify-center transition-all duration-1000 ${loadProgress >= 100 ? 'opacity-0 scale-110 pointer-events-none' : 'opacity-100'}`}>
           <div className="relative w-64 md:w-96">
@@ -905,6 +908,7 @@ export default function HomeClient({ translations, jurajData }: any) {
       )}
 
       </div>
-    </main>;
+    </main>
+  );
 }
 // CLEAN_CODE_SWEEP_DONE // L-CODE GUARDIAN v8.0  "300% or NOTHING." smrk
