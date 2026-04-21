@@ -1,42 +1,73 @@
 "use client";
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
-// BELIANSKY AMBIENT ENGINE — L-CODE GUARDIAN v8.0
-// Description: Strategic audio layer for immersive digital architecture.
-// Source: https://www.youtube.com/watch?v=kbUnnO6pkIA (Interstellar - S.T.A.Y.)
-// Note: Due to browser autoplay policies, user must interact to start.
+// BELIANSKY AMBIENT ENGINE — SOVEREIGN YOUTUBE EDITION v8.0
+// Description: Strategic audio layer directly from YouTube.
+// Song: Interstellar - S.T.A.Y. (kbUnnO6pkIA)
+
+declare global {
+  interface Window {
+    onYouTubeIframeAPIReady: () => void;
+    YT: any;
+  }
+}
+
 export default function AmbientEngine() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const playerRef = useRef<any>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // 1. Load YouTube API
+    if (!window.YT) {
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+    }
+
+    window.onYouTubeIframeAPIReady = () => {
+      playerRef.current = new window.YT.Player('yt-ambient-player', {
+        videoId: 'kbUnnO6pkIA',
+        playerVars: {
+          'autoplay': 0,
+          'controls': 0,
+          'loop': 1,
+          'playlist': 'kbUnnO6pkIA',
+          'modestbranding': 1,
+          'showinfo': 0
+        },
+        events: {
+          'onReady': () => setIsLoaded(true)
+        }
+      });
+    };
+
+    const handleStart = () => {
+      if (playerRef.current && isLoaded) {
+        playerRef.current.playVideo();
+        setIsPlaying(true);
+      }
+    };
+
+    window.addEventListener('START_AMBIENT', handleStart);
+    return () => window.removeEventListener('START_AMBIENT', handleStart);
+  }, [isLoaded]);
 
   const toggle = () => {
-    if (!audioRef.current) return;
+    if (!playerRef.current) return;
     if (isPlaying) {
-      audioRef.current.pause();
+      playerRef.current.pauseVideo();
     } else {
-      audioRef.current.play().catch(e => console.error("Audio playback failed:", e));
+      playerRef.current.playVideo();
     }
     setIsPlaying(!isPlaying);
   };
 
-  useEffect(() => {
-    const handleStart = () => {
-      if (audioRef.current && !isPlaying) {
-        audioRef.current.play().catch(e => console.error("Auto-start audio failed:", e));
-        setIsPlaying(true);
-      }
-    };
-    window.addEventListener('START_AMBIENT', handleStart);
-    return () => window.removeEventListener('START_AMBIENT', handleStart);
-  }, [isPlaying]);
-
   return (
     <div className="fixed bottom-8 right-8 z-[12000] flex items-center gap-4">
-      <audio 
-        ref={audioRef} 
-        src="/ambient.mp3" // USER NEEDS TO PUT THE CONVERTED MP3 IN PUBLIC FOLDER
-        loop
-      />
+      {/* HIDDEN PLAYER */}
+      <div id="yt-ambient-player" className="hidden pointer-events-none opacity-0 invisible" />
       
       <button 
         onClick={toggle}
@@ -60,9 +91,8 @@ export default function AmbientEngine() {
         </span>
       </button>
 
-      {/* TECHNICAL INDICATOR */}
       <div className="hidden lg:block text-[8px] font-mono text-beliansky-navy/20 rotate-90 origin-left translate-x-2">
-        STRATEGIC_AUDIO_PROTOCOL_ENGAGED
+        YOUTUBE_AUDIO_STREAM_ACTIVE
       </div>
     </div>
   );
