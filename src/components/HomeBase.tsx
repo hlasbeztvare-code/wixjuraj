@@ -1,13 +1,12 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import SatinLayer from "./SatinLayer";
 import BelianskyMovingMaster from "./BelianskyMovingMaster";
 import { OwnerVault } from './OwnerVault';
 import AmbientEngine from './AmbientEngine';
 import { Lang } from "@/lib/translations";
 import { ArchitecturalPattern } from "./ArchitecturalPattern";
-
 import { useSecurity } from "@/kernel/SecurityKernel";
 
 // ═══════════════════════════════════════════════════
@@ -250,8 +249,8 @@ export default function HomeBase({ translations, jurajData }: any) {
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
-        html { scroll-behavior: smooth; }
-        body { overscroll-behavior-y: none; }
+        html { scroll-behavior: smooth; height: auto !important; }
+        body { overscroll-behavior-y: auto !important; height: auto !important; }
         .elite-frame {
           will-change: transform;
           backface-visibility: hidden;
