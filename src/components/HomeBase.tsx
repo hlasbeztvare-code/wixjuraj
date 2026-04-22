@@ -55,23 +55,29 @@ export default function HomeBase({ translations, jurajData }: any) {
   // ═══════════════════════════════════════════════════
   const t = jurajData ? { ...translations, ...jurajData } : translations;
   
-  // IFRAME HEIGHT SYNC — Pro dokonalou integraci do Wix "Embed"
   useEffect(() => {
     if (typeof window !== 'undefined' && window.parent !== window) {
       const sendHeight = () => {
+        const h = document.documentElement.scrollHeight || document.body.scrollHeight;
         window.parent.postMessage({
           type: 'LCODE_HEIGHT_SYNC',
-          height: document.documentElement.scrollHeight,
-          version: '8.0'
+          height: h,
+          version: '8.4_MOBILE_ARMOR'
         }, '*');
       };
 
       const obs = new ResizeObserver(sendHeight);
       obs.observe(document.body);
       window.addEventListener('resize', sendHeight);
+      
+      // Agresivní polling pro mobilní sytost
+      const timer = setInterval(sendHeight, 1000);
+      setTimeout(() => clearInterval(timer), 10000);
+
       return () => {
         obs.disconnect();
         window.removeEventListener('resize', sendHeight);
+        clearInterval(timer);
       };
     }
   }, []);
@@ -182,7 +188,7 @@ export default function HomeBase({ translations, jurajData }: any) {
   if (!isAuthorized) return null;
 
   return (
-    <main className="relative min-h-screen bg-white font-sans text-beliansky-navy overflow-x-hidden selection:bg-prismatic selection:text-white elite-frame">
+    <div className="relative min-h-screen bg-white font-sans text-beliansky-navy overflow-x-hidden selection:bg-prismatic selection:text-white elite-frame">
       {loading && (
         <div className={`fixed inset-0 z-[20000] bg-white flex flex-col items-center justify-center transition-all duration-1000 ${loadProgress >= 100 ? 'opacity-0 scale-110 pointer-events-none' : 'opacity-100'}`}>
           <div className="relative w-64 md:w-96">
@@ -249,8 +255,8 @@ export default function HomeBase({ translations, jurajData }: any) {
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `
-        html { scroll-behavior: smooth; height: auto !important; }
-        body { overscroll-behavior-y: auto !important; height: auto !important; }
+        html { scroll-behavior: smooth; height: auto !important; overflow: visible !important; }
+        body { overscroll-behavior-y: auto !important; height: auto !important; overflow: visible !important; -webkit-overflow-scrolling: touch; }
         .elite-frame {
           will-change: transform;
           backface-visibility: hidden;
@@ -904,7 +910,8 @@ export default function HomeBase({ translations, jurajData }: any) {
       )}
 
       </div>
-    </main>
+    </div>
+  </div>
   );
 }
 // CLEAN_CODE_SWEEP_DONE // L-CODE GUARDIAN v8.0 — "300% or NOTHING." smrk
