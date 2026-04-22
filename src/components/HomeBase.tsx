@@ -188,7 +188,7 @@ export default function HomeBase({ translations, jurajData }: any) {
   if (!isAuthorized) return null;
 
   return (
-    <div className="relative min-h-screen bg-white font-sans text-beliansky-navy overflow-x-hidden selection:bg-prismatic selection:text-white elite-frame">
+    <div className="relative min-h-screen bg-white font-sans text-beliansky-navy overflow-x-hidden selection:bg-prismatic selection:text-white">
       {loading && (
         <div className={`fixed inset-0 z-[20000] bg-white flex flex-col items-center justify-center transition-all duration-1000 ${loadProgress >= 100 ? 'opacity-0 scale-110 pointer-events-none' : 'opacity-100'}`}>
           <div className="relative w-64 md:w-96">
@@ -526,9 +526,6 @@ export default function HomeBase({ translations, jurajData }: any) {
                   <span className="relative z-10 uppercase">{t.cta.project[lang]}</span>
                   <div className="absolute inset-0 bg-prismatic translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                 </button>
-                <div className="absolute right-[-15%] bottom-[-80%] md:right-[-10%] md:bottom-[-50%] w-[120px] md:w-[250px] opacity-15 md:opacity-40 pointer-events-none z-10">
-                  <img src="/juraj.png" alt="" className="w-full h-auto grayscale contrast-125" />
-                </div>
               </div>
             </div>
           </div>
@@ -705,14 +702,11 @@ export default function HomeBase({ translations, jurajData }: any) {
           <div className="flex flex-col lg:flex-row gap-24 items-center">
             <div className="w-full lg:w-5/12 relative group reveal-from-left pt-24 md:pt-32">
               <div className="absolute -inset-12 bg-prismatic/10 blur-[120px] rounded-full opacity-40 group-hover:opacity-70 transition-opacity duration-1000" />
-              <div className="prism-card p-0 rounded-[3.5rem] relative overflow-visible backdrop-blur-3xl border border-beliansky-navy/05 h-[500px] md:h-[650px] flex items-end shadow-[0_80px_120px_-30px_rgba(22,22,63,0.1)]">
+              <div className="prism-card p-0 rounded-[3.5rem] relative overflow-visible backdrop-blur-3xl border border-beliansky-navy/05 h-[300px] md:h-[400px] flex items-end shadow-[0_80px_120px_-30px_rgba(22,22,63,0.11)]">
                 <div className="absolute inset-0 rounded-[3.5rem] overflow-hidden">
                    <div className="absolute inset-0 opacity-[0.03] grid-static" style={{ backgroundSize: '40px 40px' }} />
                    <div className="absolute inset-0 bg-gradient-to-t from-beliansky-navy/95 via-beliansky-navy/20 to-transparent z-10" />
                 </div>
-                <img src="/juraj.png" alt="Juraj Beliansky" loading="lazy" decoding="async"
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150%] max-w-none transition-all duration-1000 object-contain z-20 origin-bottom group-hover:scale-105 drop-shadow-[0_45px_100px_rgba(0,0,0,0.6)]" 
-                  style={{ height: '135%', bottom: '0' }} />
                 <div className="absolute bottom-16 left-12 text-white z-30">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="h-px w-12 bg-prismatic" />
